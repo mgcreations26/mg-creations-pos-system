@@ -1,0 +1,6 @@
+{
+  "name": "MG Creations POS System",
+  "description": "A lightweight cloud-synced ERP & cash register terminal storing inventory, products, customers, and expenses in Google Sheets, powered by Gemini AI.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
