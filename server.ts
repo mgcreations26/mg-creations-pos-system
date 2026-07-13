@@ -1,3 +1,4 @@
+import { onRequest } from "firebase-functions/v2/https";
 import express from 'express';
 import dotenv from 'dotenv';
 import { GoogleGenAI } from '@google/genai';
@@ -61,16 +62,5 @@ app.post('/api/chat', async (req, res) => {
   }
 });
 
-import path from 'path';
-
-// Serve static files from the 'dist' directory (frontend build)
-app.use(express.static(path.join(process.cwd(), 'dist')));
-
-// Catch-all route to serve the React app for any unhandled requests (client-side routing)
-app.get('*', (req, res) => {
-  res.sendFile(path.join(process.cwd(), 'dist', 'index.html'));
-});
-
-app.listen(port, () => {
-  console.log(`Server listening on port ${port}`);
-});
+// Export the Express app as a Firebase HTTP Cloud Function
+export const api = onRequest(app);
